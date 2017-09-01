@@ -2,13 +2,17 @@ const gulp = require('gulp');
 const paths = {
   src: './src',
   lib: './node_modules',
-  dest: 'public'
+  dest: 'build'
 };
 gulp.task('build', () => {
   gulp.src([
-    paths.src + '/**/*.js',
     paths.lib + '/angular/angular.js'
-  ]).pipe(gulp.dest(paths.dest + '/js')); 
+  ]).pipe(gulp.dest(paths.dest + '/vendor'));
+
+  gulp.src([
+    paths.src + '/**/*.js'
+  ]).pipe(gulp.dest(paths.dest)); 
+  
   gulp.src([
     paths.src + '/index.html'
   ]).pipe(gulp.dest(paths.dest));

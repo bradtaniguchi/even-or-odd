@@ -10,7 +10,7 @@
     return vm;
     
     function onInit() {
-      
+      console.log('in AppController'); 
     }
   }
 })();
