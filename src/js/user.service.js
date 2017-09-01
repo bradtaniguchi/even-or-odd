@@ -41,8 +41,6 @@
         jwt: '12345' // totally fake
       };
     }
-
-
     /**
      * Logs the user out of the application.
      * @param {string} username
