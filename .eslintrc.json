@@ -3,5 +3,13 @@
     "parserOptions": {
       "ecmaVersion": 6
     },
-    "comma-dangle": "ignore"
+    "env" :{
+      "browser": true
+    },
+    "rules" :{
+      "no-var": 0,
+      "comma-dangle": 0,
+      "prefer-rest-params": 0,
+      "require-jsdoc": 0
+    }
 }
