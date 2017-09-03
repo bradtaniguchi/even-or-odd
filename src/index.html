@@ -6,14 +6,20 @@
   </head>
   <body ng-app="app">
     <div ng-controller="AppController"> <!--game controller-->
-      game goes here....
-      <button ng-click="flip()">
-        click test2
-      </button>
-    </div>
-    <div> <!--register controller-->
-      Register with us!
-    </div>
+
+      <div ng-if="!vm.loading && vm.user"> <!--start game view-->
+        game goes here....
+        <button ng-click="flip()">
+          click test2
+        </button>
+      </div> <!--end game view-->
+
+      <div ng-if="!vm.loading && vm.user === undefined"> <!--register controller-->
+        Register with us!
+      </div> <!--end register view-->
+
+    </div> <!--end AppController-->
+
     <!--scripts-->
     <script src="vendor/socket.io.js"></script> <!--for socket.io-client-->
     <script src="vendor/angular.js"></script>
