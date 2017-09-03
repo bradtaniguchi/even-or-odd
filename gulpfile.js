@@ -7,12 +7,14 @@ const paths = {
 };
 const serverParams = {
   port: 8080,
-  host: '0.0.0.0'
+  host: '0.0.0.0',
+  root: './build'
 };
 gulp.task('build', () => {
   gulp.src([
     paths.lib + '/angular/angular.js',
-    paths.lib + 'socket.io/lib/client.js'
+    paths.lib + '/socket.io-client/dist/socket.io.js',
+    paths.lib + '/socket.io-client/dist/socket.io.js.map'
   ]).pipe(gulp.dest(paths.dest + '/vendor'));
 
   gulp.src([

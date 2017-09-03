@@ -1,7 +1,7 @@
 (function(){
   'use strict';
   angular.module('app')
-  .factory('UserSerivce', UserService);
+  .factory('UserService', UserService);
   UserService.$inject=[
     '$log',
     '$http',

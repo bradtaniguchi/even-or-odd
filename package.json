@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "gulp" : "gulp default",
     "build": "gulp build",
     "start": "gulp start",
     "clean": "rm -rf ./public",
