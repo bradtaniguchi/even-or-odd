@@ -13,7 +13,6 @@
     vm.user; // the current player
     vm.loading = true; // loading the game/player registration
     vm.users = []; // list of other people, not including the player
-    vm.player = {}; // the current player
     // functions
     vm.flip = flip;
     vm.$onInit = onInit;

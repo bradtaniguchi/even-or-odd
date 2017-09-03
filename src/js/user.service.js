@@ -40,7 +40,6 @@
      */
     function getUser() {
       var differed = $q.defer();
-      console.log(url);
       var user = { // hardcode a user for now
         username: 'brad',
         jwt: '12345' // totally fake

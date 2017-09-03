@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <title>title</title>
   </head>
-  <body ng-app="app">
-    <div ng-controller="AppController"> <!--game controller-->
-
-      <div ng-if="!vm.loading && vm.user"> <!--start game view-->
+  <body ng-app="app" class="ng-cloak">
+    <div ng-controller="AppController as vm"> <!--game controller-->
+      <div ng-controller="GameController as vm" ng-if="!vm.loading && vm.user"> <!--start game view-->
         game goes here....
+
+        Welcome {{vm.user | json}}
         <button ng-click="flip()">
           click test2
         </button>
@@ -16,6 +17,7 @@
 
       <div ng-if="!vm.loading && vm.user === undefined"> <!--register controller-->
         Register with us!
+        {{vm.user}}
       </div> <!--end register view-->
 
     </div> <!--end AppController-->
@@ -24,7 +26,10 @@
     <script src="vendor/socket.io.js"></script> <!--for socket.io-client-->
     <script src="vendor/angular.js"></script>
     <script src="js/app.module.js"></script>
+    <!--controllers-->
     <script src="js/app.controller.js"></script>
+    <script src="js/game.controller.js"></script>
+    <!--services-->
     <script src="js/user.service.js"></script>
     <script src="js/roll.service.js"></script>
     <script src="js/socket.service.js"></script>
