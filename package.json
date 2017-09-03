@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "gulp build",
+    "start": "gulp start",
     "clean": "rm -rf ./public",
     "eslint": "node ./node_modules/eslint/bin/eslint.js ./src/**/*.js; exit 0"
   },

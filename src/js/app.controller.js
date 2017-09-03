@@ -22,7 +22,7 @@
      */
     function onInit() {
       console.log('in AppController');
-      UserService.
+
     }
 
     function flip() {

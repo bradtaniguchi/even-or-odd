@@ -11,11 +11,18 @@ gulp.task('build', () => {
 
   gulp.src([
     paths.src + '/**/*.js'
-  ]).pipe(gulp.dest(paths.dest)); 
-  
+  ]).pipe(gulp.dest(paths.dest));
+
   gulp.src([
     paths.src + '/index.html'
   ]).pipe(gulp.dest(paths.dest));
 });
-gulp.task('default', ['build']);
+
+gulp.task('start', () => {
+  gulp.watch([
+    paths.src + '/**/*.js',
+    paths.src + '/index.html'
+  ], ['build']);
+});
+gulp.task('default', ['build', 'start']);
 
