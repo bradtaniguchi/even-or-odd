@@ -10,14 +10,17 @@
         game goes here....
 
         Welcome {{vm.user | json}}
-        <button ng-click="flip()">
+        <button ng-click="vm.roll()">
           click test2
         </button>
+        <div ng-if="vm.rolls.length" ng-repeat="roll in vm.rolls |  limitTo: 5  track by $index">
+          {{roll}}
+        </div>
       </div> <!--end game view-->
 
       <div ng-if="!vm.loading && vm.user === undefined"> <!--register controller-->
         Register with us!
-        {{vm.user}}
+        {{vm.user | json}}
       </div> <!--end register view-->
 
     </div> <!--end AppController-->

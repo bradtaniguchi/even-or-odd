@@ -5,12 +5,15 @@
   GameController.$inject=[
     '$log',
     'UserService',
-    'SocketService'
+    'SocketService',
+    'RollService'
   ];
-  function GameController($log, UserService, SocketService) {
+  function GameController($log, UserService, SocketService, RollService) {
     var vm = this;
+    vm.rolls = []; // list of last rolls
     vm.user = {}; // the current user section
     vm.bet = bet;
+    vm.roll = roll;
     vm.$onInit = onInit;
     return vm;
     // Use SocketService here   
@@ -22,6 +25,7 @@
         if (user) {
           console.log('user found in game controller');
           console.log(user);
+          vm.user = user;
         } else {
           console.error('user not found in game controller!');
         }
@@ -39,6 +43,14 @@
       console.log(side);
       console.log(amount);
       console.log('---');
+    }
+    /**
+     * 'rolls' using the Roll Service
+     */
+    function roll() {
+      var roll = RollService.roll();
+      console.log(roll);
+      vm.rolls.push(roll);
     }
   }
 })();

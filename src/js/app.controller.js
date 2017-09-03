@@ -7,14 +7,13 @@
     'UserService',
     'RollService'
     ];
-  function AppController($log, UserService, RollService) {
+  function AppController($log, UserService) {
     var vm = this;
     // variables
     vm.user; // the current player
     vm.loading = true; // loading the game/player registration
     vm.users = []; // list of other people, not including the player
     // functions
-    vm.flip = flip;
     vm.$onInit = onInit;
     return vm;
     /**
@@ -33,10 +32,6 @@
         }
         vm.loading = false; // show/hide all pages
       });
-    }
-
-    function flip() {
-      console.log('flip clicked');
     }
   }
 })();
