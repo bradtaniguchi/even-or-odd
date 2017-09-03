@@ -11,7 +11,8 @@ const serverParams = {
 };
 gulp.task('build', () => {
   gulp.src([
-    paths.lib + '/angular/angular.js'
+    paths.lib + '/angular/angular.js',
+    paths.lib + 'socket.io/lib/client.js'
   ]).pipe(gulp.dest(paths.dest + '/vendor'));
 
   gulp.src([
