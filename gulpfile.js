@@ -8,7 +8,10 @@ const paths = {
 const serverParams = {
   port: 8080,
   host: '0.0.0.0',
-  root: './build'
+  proxy: [[
+    '/app/',
+    'https://localhost:8081' // redirect to back-end app in deve environment, may need to change to http.
+  ]]
 };
 gulp.task('build', () => {
   gulp.src([
