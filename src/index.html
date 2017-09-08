@@ -3,6 +3,15 @@
   <head>
     <meta charset="UTF-8">
     <title>title</title>
+    <style>
+      .rolls {
+        overflow: auto;
+        height: 200px;
+        width: 300px;
+        background-color: grey;
+        border-radius: 8px;
+      }
+    </style>
   </head>
   <body ng-app="app" class="ng-cloak">
     <div ng-controller="AppController as vm"> <!--game controller-->
@@ -13,12 +22,16 @@
         <button ng-click="vm.roll()">
           click test2
         </button>
-        <div ng-if="vm.rolls.length" ng-repeat="roll in vm.rolls |  limitTo: 5  track by $index">
-          {{roll}}
+        <div class="rolls">
+          <div ng-if="vm.rolls.length"
+            ng-repeat="roll in vm.rolls | reverse track by $index">
+          {{roll}} | {{$index}}
+          </div>
         </div>
+
       </div> <!--end game view-->
 
-      <div ng-if="!vm.loading && vm.user === undefined"> <!--register controller-->
+      <div ng-if="!vm.loading && vm.user === undefined" ng-controller="RegistrationController as vm"> <!--register controller-->
         Register with us!
         {{vm.user | json}}
       </div> <!--end register view-->
@@ -32,9 +45,13 @@
     <!--controllers-->
     <script src="js/app.controller.js"></script>
     <script src="js/game.controller.js"></script>
+    <script src="js/registration.controller.js"></script>
     <!--services-->
     <script src="js/user.service.js"></script>
     <script src="js/roll.service.js"></script>
     <script src="js/socket.service.js"></script>
+    <!--filters-->
+    <script src="js/reverse.filter.js"></script>
+
   </body>
 </html>
