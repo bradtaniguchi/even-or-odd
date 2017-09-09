@@ -1,20 +1,33 @@
 const gulp = require('gulp');
+const rename = require('gulp-rename');
 const server = require('live-server');
 const paths = {
   src: './src',
   lib: './node_modules',
-  dest: 'build'
+  dest: './build',
+  env: './env'
 };
 const serverParams = {
   port: 8080,
   host: '0.0.0.0',
   root: './build',
-  proxy: [[
-    '/app/',
-    'https://localhost:8081' // redirect to back-end app in deve environment, may need to change to http.
-  ]]
+//  proxy: [[
+//    'http://localhost',
+//    'http://localhost:8081' // redirect to back-end app in deve environment, may need to change to http.
+//  ]],
+//  middleware: [(req, res, next) => {
+//    console.log(req);
+//    next();
+//  }]
 };
 gulp.task('build', () => {
+  console.log('buildering for: ' + process.env.env);
+  const env = process.env.env === 'prod' ? '/prod.js' : '/dev.js';
+  gulp.src([
+      paths.env + env
+  ]).pipe(rename('env.js'))
+  .pipe(gulp.dest(paths.dest + '/js'));
+
   gulp.src([
     paths.lib + '/angular/angular.js',
     paths.lib + '/socket.io-client/dist/socket.io.js',
@@ -30,7 +43,7 @@ gulp.task('build', () => {
   ]).pipe(gulp.dest(paths.dest));
 });
 
-gulp.task('start', () => {
+gulp.task('start', ['build'], () => {
   gulp.watch([
     paths.src + '/**/*.js',
     paths.src + '/index.html'

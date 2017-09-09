@@ -5,14 +5,17 @@
   .factory('SocketService', SocketService);
   SocketService.$inject= [
     '$log',
-    '$rootScope'
+    '$rootScope',
+    'SOCKET_URL'
   ];
   /*
    * The service that wraps the socket.io library, 
    * which will be used to connect to the back-end
    */ 
-  function SocketService($log, $rootScope) {
-    var socket = io.connect(); // connect to socket.io global
+  function SocketService($log, $rootScope, SOCKET_URL) {
+    var socket = io.connect(SOCKET_URL); // connect to socket.io global
+    $log.log('test');
+    $log.log(SOCKET_URL);
     return {
       on: on,
       emit: emit

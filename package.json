@@ -4,10 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "gulp" : "gulp default",
+    "gulp": "gulp default",
     "build": "gulp build",
     "start": "gulp start",
-    "clean": "rm -rf ./public",
+    "clean": "rm -rf ./build",
     "eslint": "node ./node_modules/eslint/bin/eslint.js ./src/**/*.js; exit 0",
     "eslint:fix": "node ./node_modules/eslint/bin/eslint.js  --fix .src/**/*.js; exit 0"
   },
@@ -22,6 +22,7 @@
     "eslint": "^4.5.0",
     "eslint-config-google": "^0.9.1",
     "gulp": "^3.9.1",
+    "gulp-rename": "^1.2.2",
     "live-server": "^1.2.0"
   }
 }
