@@ -14,8 +14,6 @@
    */ 
   function SocketService($log, $rootScope, SOCKET_URL) {
     var socket = io.connect(SOCKET_URL); // connect to socket.io global
-    $log.log('test');
-    $log.log(SOCKET_URL);
     return {
       on: on,
       emit: emit
@@ -40,7 +38,7 @@
      * @param {function} callback - the callback function to call on emit
      */
     function emit(eventName, data, callback) {
-      scoket.emit(eventName, data, function() {
+      socket.emit(eventName, data, function() {
         var args = aruments;
         $rootScope.$apply(function() {
           if (callback) {

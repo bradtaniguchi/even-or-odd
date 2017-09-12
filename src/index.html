@@ -22,6 +22,9 @@
         <button ng-click="vm.roll()">
           click test2
         </button>
+        <button ng-click="vm.bet('user', 'HEAD', 5)">
+          bet
+        </button>
         <div class="rolls">
           <div ng-if="vm.rolls.length"
             ng-repeat="roll in vm.rolls | reverse track by $index">

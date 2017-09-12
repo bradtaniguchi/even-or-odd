@@ -42,6 +42,13 @@
       console.log(user);
       console.log(side);
       console.log(amount);
+      SocketService.emit('bet', {
+          user: user,
+          side: side,
+          amount: amount
+      }, function() {
+        console.log('in callback');
+      });
       console.log('---');
     }
     /**
